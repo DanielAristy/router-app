@@ -1,20 +1,24 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import About from '../components/About'
+import Contact from '../components/Contact'
+import Home from '../components/Home'
+import NotFound from '../components/NotFound'
 
 export default function AppRouter() {
     return (
         <Router>
             <Switch>
                 <Route path="/about">
-                    <h1>About</h1>
+                    <About />
                 </Route>
                 <Route path="/contact">
-                    <h1>Contact</h1>
+                    <Contact />
                 </Route>
                 <Route exact path="/">
-                    <h1>Home</h1> 
+                    <Home />
                 </Route>
                 <Route exact path="*">
-                    <h1>404 Not found</h1>
+                    <NotFound />
                 </Route>
             </Switch>
         </Router>
