@@ -1,6 +1,7 @@
 import {  Route, Switch, Redirect, NavLink } from 'react-router-dom'
 import Categories from '../components/Categories'
 import NotFound from '../components/NotFound'
+import PrivateRoute from '../routers/PrivateRoute'
 
 export default function CategoriesRouter(){
     return (
@@ -21,9 +22,11 @@ export default function CategoriesRouter(){
             </ul>
             <Switch>
                 <Route exact path="/categories" component={Categories} />
-                <Route exact path="/categories/terror">
-                    <h1>Categories Terror</h1>
-                </Route>
+                <PrivateRoute
+                 exact
+                  path="/categories/terror"
+                   component={() => <h1>Categories Terror</h1>} />
+        
                 <Route exact path="/categories/action">
                     <h1>Categories Action</h1>
                 </Route>
