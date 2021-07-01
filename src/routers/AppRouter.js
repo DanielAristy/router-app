@@ -10,18 +10,10 @@ export default function AppRouter() {
         <Router>
             <Navbar />
             <Switch>
-                <Route path="/about">
-                    <About />
-                </Route>
-                <Route path="/contact">
-                    <Contact />
-                </Route>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route exact path="*">
-                    <NotFound />
-                </Route>
+                <Route exact path="/about" component={About} />
+                <Route exact path="/contact" component={Contact} />
+                <Route exact path="/" component={Home} />
+                <Route path="*" component={NotFound} />
             </Switch>
         </Router>
     )
