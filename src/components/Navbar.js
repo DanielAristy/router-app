@@ -1,17 +1,17 @@
-import { Link } from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 
 export default function Navbar() {
     return ( 
         <nav>
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <NavLink exact to="/" activeClassName="active">Home</NavLink>
                 </li>
                 <li>
-                    <Link to="/about">About</Link>
+                    <NavLink exact to="/about" activeClassName="active">About</NavLink>
                 </li>
                 <li>
-                    <Link to="/contact">Contact</Link>
+                    <NavLink exact to="/contact" activeClassName="active">Contact</NavLink>
                 </li>
             </ul>
         </nav>
