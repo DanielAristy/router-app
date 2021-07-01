@@ -4,6 +4,7 @@ import Contact from '../components/Contact'
 import Home from '../components/Home'
 import NotFound from '../components/NotFound'
 import Navbar from '../components/Navbar'
+import Profile from '../components/Profile'
 
 export default function AppRouter() {
     return (
@@ -12,6 +13,7 @@ export default function AppRouter() {
             <Switch>
                 <Route exact path="/about" component={About} />
                 <Route exact path="/contact" component={Contact} />
+                <Route exact path="/profile/:username" component={Profile} />
                 <Route exact path="/" component={Home} />
                 <Route path="*" component={NotFound} />
             </Switch>
