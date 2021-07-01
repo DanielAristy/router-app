@@ -18,21 +18,30 @@ export default function Navbar() {
                 <li>
                     <NavLink exact to="/categories" activeClassName="active">Categories</NavLink>
                 </li>
-                <li>
-                    <NavLink exact to="/login" activeClassName="active">Login</NavLink>
-                </li>
-                <li>
-                    <NavLink exact to="/register" activeClassName="active">Register</NavLink>
-                </li>
-                <li>
-                    <NavLink exact to="/dashboard" activeClassName="active">Dashboard</NavLink>
-                </li>
-                <li>
-                    <NavLink exact to="/payments" activeClassName="active">Payments</NavLink>
-                </li>
-                <li>
-                    <button onClick={auth.logout}>Logout</button>
-                </li>
+                {!auth.isLogged() && (
+                    <>
+                        <li>
+                            <NavLink exact to="/login" activeClassName="active">Login</NavLink>
+                        </li>
+                        <li>
+                            <NavLink exact to="/register" activeClassName="active">Register</NavLink>
+                        </li>
+                    </>
+                )}
+                {auth.isLogged() && (
+                    <>
+                        <li>
+                            <NavLink exact to="/dashboard" activeClassName="active">Dashboard</NavLink>
+                        </li>
+                        <li>
+                            <NavLink exact to="/payments" activeClassName="active">Payments</NavLink>
+                        </li>
+                        <li>
+                            <button onClick={auth.logout}>Logout</button>
+                        </li>
+                    </>
+                )}
+                
             </ul>
         </nav>
     )
