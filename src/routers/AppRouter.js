@@ -26,7 +26,7 @@ export default function AppRouter() {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/payments" component={Payments} />
+                <PrivateRoute exact path="/payments" component={Payments} />
                 <Route exact path="/profile/:username" component={Profile} />
                 <Route exact path="/" component={Home} />
                 <Route path="*" component={NotFound} />
