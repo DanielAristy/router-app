@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import About from '../components/About'
 import Contact from '../components/Contact'
 import Home from '../components/Home'
@@ -6,6 +6,11 @@ import NotFound from '../components/NotFound'
 import Navbar from '../components/Navbar'
 import Profile from '../components/Profile'
 import Categories from '../components/Categories'
+import Login from '../components/Login'
+import Register from '../components/Register'
+import Dashboard from '../components/Dashboard'
+import Payments from '../components/Payments'
+import PrivateRoute from '../routers/PrivateRoute'
 
 export default function AppRouter() {
     return (
@@ -15,6 +20,13 @@ export default function AppRouter() {
                 <Route exact path="/about" component={About} />
                 <Route exact path="/contact" component={Contact} />
                 <Route exact path="/categories" component={Categories} />
+                <Route exact path="/signin">
+                    <Redirect to="/login" />
+                </Route>
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} />
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/payments" component={Payments} />
                 <Route exact path="/profile/:username" component={Profile} />
                 <Route exact path="/" component={Home} />
                 <Route path="*" component={NotFound} />
