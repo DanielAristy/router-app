@@ -1,4 +1,4 @@
-import { createContext, useState} from "react";
+import { createContext, useState, useEffect} from "react";
 
 //Consumir para acceder a dicho contexto
 export const AuthContext = createContext();
@@ -10,8 +10,25 @@ const AuthProvider = ({children}) => {
      * El estado inicial en este momento va a ser null
      * Porque el usuario cuando ingrese en la app no va a estar logeado
     */
-
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(
+        //Parse del dato que obtenemos de alla para obtener el objeto
+        JSON.parse(localStorage.getItem('user')) || null
+    );
+    
+    /**
+     * Se utliza un useEffect cada vez que el usuario este
+     * navegando en los demas link no pierda el estado del
+     * login y guarde ese dato
+    */
+    useEffect(() => {
+        try {
+            localStorage.setItem('user', JSON.stringify(user));
+        } catch (error) {
+            localStorage.removeItem('user');
+            console.log(error);
+        }
+        
+    }, [user])
 
     const contextValue = {
         user,
