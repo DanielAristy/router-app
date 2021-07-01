@@ -1,4 +1,4 @@
-import { NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import UseAuth from '../auth/UseAuth'
 
 export default function Navbar() {
@@ -16,7 +16,7 @@ export default function Navbar() {
                     <NavLink exact to="/contact" activeClassName="active">Contact</NavLink>
                 </li>
                 <li>
-                    <NavLink exact to="/categories" activeClassName="active">Categories</NavLink>
+                    <NavLink  to="/categories" activeClassName="active">Categories</NavLink>
                 </li>
                 {!auth.isLogged() && (
                     <>
